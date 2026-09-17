@@ -76,5 +76,19 @@ class StaticProjectTests(unittest.TestCase):
             self.assertGreater(path.stat().st_size, 50_000)
 
 
+
+    def test_maracuja_products_are_amanteigados_not_casadinhos(self):
+        products = {p["id"]: p for p in self.products}
+        puro = products[6]
+        chocolate = products[7]
+        self.assertEqual(puro["name"], "Amanteigado de Maracujá Puro")
+        self.assertEqual(puro["slug"], "amanteigado-maracuja-puro")
+        self.assertEqual(puro["category"], "Amanteigados")
+        self.assertEqual(chocolate["name"], "Amanteigado de Maracujá com Chocolate")
+        self.assertEqual(chocolate["slug"], "amanteigado-maracuja-chocolate")
+        self.assertEqual(chocolate["category"], "Amanteigados")
+        self.assertEqual(chocolate["image"], "assets/images/maracuja-chocolate.webp")
+        self.assertTrue((ROOT / chocolate["image"]).is_file())
+
 if __name__ == "__main__":
     unittest.main()

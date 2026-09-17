@@ -1,4 +1,4 @@
-const CACHE = "caseirinhos-v8-prices";
+const CACHE = "caseirinhos-v9-maracuja";
 const CORE = [
   "./",
   "index.html",

@@ -1,5 +1,5 @@
 {
-  "version": 8,
+  "version": 9,
   "currency": "BRL",
   "products": [
     {
@@ -122,12 +122,12 @@
     },
     {
       "id": 6,
-      "slug": "casadinho-maracuja-puro",
-      "name": "Casadinho de Maracujá Puro",
-      "category": "Casadinhos",
-      "description": "Casadinho artesanal de maracujá puro.",
+      "slug": "amanteigado-maracuja-puro",
+      "name": "Amanteigado de Maracujá Puro",
+      "category": "Amanteigados",
+      "description": "Amanteigado artesanal de maracujá puro, com sabor marcante e textura delicada.",
       "image": "assets/images/maracuja.webp",
-      "badge": "Especial",
+      "badge": "Maracujá puro",
       "options": [
         {
           "label": "200g",
@@ -145,12 +145,12 @@
     },
     {
       "id": 7,
-      "slug": "casadinho-maracuja-chocolate",
-      "name": "Casadinho de Maracujá com Chocolate",
-      "category": "Casadinhos",
-      "description": "Maracujá com chocolate em uma versão especial do casadinho.",
-      "image": "assets/images/ninho-chocolate.webp",
-      "badge": "Especial",
+      "slug": "amanteigado-maracuja-chocolate",
+      "name": "Amanteigado de Maracujá com Chocolate",
+      "category": "Amanteigados",
+      "description": "Amanteigado artesanal de maracujá com cobertura de chocolate, combinando o toque cítrico da fruta com o sabor do chocolate.",
+      "image": "assets/images/maracuja-chocolate.webp",
+      "badge": "Maracujá + chocolate",
       "options": [
         {
           "label": "200g",

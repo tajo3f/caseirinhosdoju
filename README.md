@@ -1,8 +1,8 @@
-# Caseirinhos do Ju — Premium V8 · Preços Fáceis
+# Caseirinhos do Ju — Premium V9 · Catálogo corrigido
 
 Versão baseada na V7 ULTRA, com os novos valores aplicados e edição simplificada por `data/precos.json`, preservando UI/UX, VFX, catálogo, carrinho, WhatsApp e compatibilidade com GitHub Pages.
 
-## O que mudou na V8
+## Base V8 + correção V9
 
 - novos valores aplicados aos Amanteigados, Casadinhos e Pães Caseiros;
 - novo arquivo `data/precos.json` para alterar somente preços pelo celular;
