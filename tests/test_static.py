@@ -90,5 +90,15 @@ class StaticProjectTests(unittest.TestCase):
         self.assertEqual(chocolate["image"], "assets/images/maracuja-chocolate.webp")
         self.assertTrue((ROOT / chocolate["image"]).is_file())
 
+    def test_real_availability_rules(self):
+        by_slug = {p["slug"]: p for p in self.products}
+        self.assertEqual(by_slug["pao-caseiro-doce"]["availability"], "Finais de semana ou por encomenda")
+        self.assertEqual(by_slug["pao-caseiro-sal-cebola"]["availability"], "Finais de semana ou por encomenda")
+        self.assertEqual(by_slug["combos-esfirras-abertas"]["availability"], "Quinta, sexta e sábado · 18h30 às 22h")
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn("quinta a sábado, 18h30–22h", html)
+        self.assertIn("finais de semana ou por encomenda", html)
+
+
 if __name__ == "__main__":
     unittest.main()

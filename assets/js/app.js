@@ -109,6 +109,7 @@
         product.category,
         product.description,
         product.badge,
+        product.availability,
         ...(product.flavors || []),
         ...(product.options || []).map((option) => option.label)
       ].join(" "));
@@ -178,6 +179,7 @@
             <span class="product-category">${product.category}</span>
             <h3>${product.name}</h3>
             <p>${product.description}</p>
+            ${product.availability ? `<div class="product-availability"><span class="product-availability__dot" aria-hidden="true"></span><span><small>Disponibilidade</small><strong>${product.availability}</strong></span></div>` : ""}
             ${product.slug ? `<a class="product-detail-link" href="produtos/${product.slug}/index.html" aria-label="Ver detalhes de ${product.name}">Ver detalhes do produto <span aria-hidden="true">→</span></a>` : ""}
             <div class="product-price" id="price-${product.id}">${priceLabel}</div>
             ${optionMarkup}

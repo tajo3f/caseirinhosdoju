@@ -29,6 +29,7 @@ def render_product(product: dict, site_url: str = "") -> str:
     name = html.escape(product["name"])
     description = html.escape(product.get("description", ""))
     category = html.escape(product.get("category", ""))
+    availability = html.escape(product.get("availability", ""))
     image_rel = product["image"]
     page_url = urljoin(site_url, f"produtos/{slug}/") if site_url else "./"
     og_image = urljoin(site_url, image_rel) if site_url else f"../../{image_rel}"
@@ -46,6 +47,10 @@ def render_product(product: dict, site_url: str = "") -> str:
         )
         prices = [float(opt["price"]) for opt in options]
         price_html = f'<span class="price-from">a partir de</span><strong>{money(min(prices))}</strong>' if len(prices) > 1 else f'<strong>{money(prices[0])}</strong>'
+
+    availability_html = ""
+    if availability:
+        availability_html = f'<div class="product-page__availability"><span aria-hidden="true"></span><div><small>Disponibilidade</small><strong>{availability}</strong></div></div>'
 
     flavors = product.get("flavors", [])
     flavors_html = ""
@@ -136,6 +141,7 @@ def render_product(product: dict, site_url: str = "") -> str:
     .product-page__actions{{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}}
     .product-page__actions .btn{{text-decoration:none}}
     .flavors{{margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}}.flavors h2{{font-size:1.15rem;margin:0 0 14px}}.flavors ul{{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0}}.flavors li{{padding:9px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.78rem;font-weight:750}}
+    .product-page__availability{{display:flex;align-items:center;gap:12px;margin:22px 0;padding:15px 17px;border:1px solid rgba(201,117,24,.22);border-radius:18px;background:#fff7e8}}.product-page__availability>span{{width:10px;height:10px;border-radius:50%;background:var(--orange-400);box-shadow:0 0 0 5px rgba(201,117,24,.12);flex:0 0 auto}}.product-page__availability div{{display:grid;gap:2px}}.product-page__availability small{{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:850}}.product-page__availability strong{{font-size:.9rem;color:var(--brown-900)}}
     .product-page__note{{margin-top:24px;padding:16px 18px;border-radius:18px;background:var(--cream-100);font-size:.78rem;color:var(--muted);line-height:1.6}}
     @media(max-width:800px){{.product-page__grid{{grid-template-columns:1fr}}.product-page__media{{position:relative;top:auto;aspect-ratio:4/3}}.product-page__copy h1{{font-size:clamp(3rem,14vw,5rem)}}}}
   </style>
@@ -145,7 +151,7 @@ def render_product(product: dict, site_url: str = "") -> str:
   <header class="product-page__header"><div class="shell"><a class="product-page__brand" href="../../index.html"><img src="../../assets/images/logo.webp" alt="{COMPANY}" width="54" height="54"><span>{COMPANY}</span></a><span class="product-page__credit" aria-label="Site desenvolvido pela TAJO Digital 3F"><span>site desenvolvido por</span><strong>TAJO Digital 3F</strong></span><a class="product-page__back" href="../../index.html#cardapio">← Voltar ao cardápio</a></div></header>
   <main class="product-page__main"><div class="shell product-page__grid">
     <figure class="product-page__media" data-vfx-glare><img src="{image_src}" alt="{name} - {COMPANY}" width="1000" height="1000" fetchpriority="high"></figure>
-    <section class="product-page__copy"><span class="kicker">{category}</span><h1>{name}</h1><p>{description}</p><div class="product-page__price">{price_html}</div><ul class="product-page__options">{options_html}</ul>{flavors_html}<div class="product-page__actions"><a class="btn btn--primary" href="{wa}" target="_blank" rel="noopener">Pedir pelo WhatsApp →</a><a class="btn btn--secondary" href="../../index.html#cardapio">Continuar escolhendo</a></div><p class="product-page__note">A disponibilidade, retirada, entrega e eventual taxa são confirmadas diretamente pelo atendimento no WhatsApp.</p></section>
+    <section class="product-page__copy"><span class="kicker">{category}</span><h1>{name}</h1><p>{description}</p>{availability_html}<div class="product-page__price">{price_html}</div><ul class="product-page__options">{options_html}</ul>{flavors_html}<div class="product-page__actions"><a class="btn btn--primary" href="{wa}" target="_blank" rel="noopener">Pedir pelo WhatsApp →</a><a class="btn btn--secondary" href="../../index.html#cardapio">Continuar escolhendo</a></div><p class="product-page__note">A disponibilidade, retirada, entrega e eventual taxa são confirmadas diretamente pelo atendimento no WhatsApp.</p></section>
   </div></main>
   <script src="../../assets/js/vfx.js" defer></script>
 </body>

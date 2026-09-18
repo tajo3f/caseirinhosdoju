@@ -71,6 +71,7 @@
       </div>
 
       <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="#disponibilidade">Disponibilidade</a>
         <a href="#combos">Combos</a>
         <a href="#sabores">Esfirras</a>
         <a href="#cardapio">Cardápio</a>
@@ -89,6 +90,7 @@
     </div>
 
     <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile" hidden>
+      <a href="#disponibilidade">Disponibilidade</a>
       <a href="#combos">Combos</a>
       <a href="#sabores">Esfirras</a>
       <a href="#cardapio">Cardápio</a>
@@ -143,6 +145,29 @@
       </div>
     </div>
 
+    <section class="availability-section section" id="disponibilidade" aria-labelledby="availabilityTitle">
+      <div class="shell availability-shell">
+        <div class="section-heading reveal">
+          <span class="kicker">QUANDO ENCONTRAR</span>
+          <h2 id="availabilityTitle">Cada fornada tem seu momento.</h2>
+          <p>Confira a disponibilidade dos pães caseiros e das esfirras antes de montar o pedido.</p>
+        </div>
+        <div class="availability-grid reveal">
+          <article class="availability-card availability-card--bread" data-vfx-tilt>
+            <div class="availability-card__icon" aria-hidden="true">01</div>
+            <div class="availability-card__copy"><span>PÃES CASEIROS</span><h3>Doce + Sal e Cebola</h3><p>Produção nos <strong>finais de semana</strong> ou <strong>por encomenda</strong>.</p></div>
+            <a href="#cardapio" data-filter="Pães">Ver pães <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="availability-card availability-card--esfirra" data-vfx-tilt>
+            <div class="availability-card__icon" aria-hidden="true">02</div>
+            <div class="availability-card__copy"><span>ESFIRRAS ABERTAS</span><h3>Quinta, sexta e sábado</h3><p>Disponíveis das <strong>18h30 às 22h</strong> nos três dias.</p></div>
+            <a href="#combos">Ver combos <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+        <p class="availability-footnote reveal">Você pode montar o pedido no site e confirmar disponibilidade, retirada ou entrega pelo WhatsApp.</p>
+      </div>
+    </section>
+
     <section class="editorial section" aria-labelledby="editorialTitle">
       <div class="shell">
         <div class="section-heading reveal">
@@ -172,7 +197,7 @@
       <div class="shell">
         <div class="section-heading section-heading--split reveal">
           <div><span class="kicker">COMBOS DE ESFIRRAS ABERTAS</span><h2 id="combosTitle">Tem combo para cada tamanho de fome.</h2></div>
-          <p>Escolha o combo, selecione o sabor e adicione ao pedido. Os valores já ficam calculados no carrinho.</p>
+          <p>Escolha o combo, selecione o sabor e adicione ao pedido. <strong>Esfirras disponíveis de quinta a sábado, das 18h30 às 22h.</strong></p>
         </div>
 
         <div class="combo-grid reveal">
@@ -242,6 +267,8 @@
         <div class="section-heading reveal"><span class="kicker">DÚVIDAS RÁPIDAS</span><h2 id="faqTitle">Antes de finalizar.</h2><p>O site organiza o pedido; disponibilidade e entrega são confirmadas pelo atendimento.</p></div>
         <div class="faq-list reveal">
           <details><summary>O pedido é confirmado automaticamente?<span>+</span></summary><p>Não. O site prepara a mensagem e o atendimento confirma disponibilidade, retirada ou entrega pelo WhatsApp.</p></details>
+          <details><summary>Quando as esfirras estão disponíveis?<span>+</span></summary><p>As esfirras são vendidas de quinta a sábado, das 18h30 às 22h.</p></details>
+          <details><summary>Quando tem pão caseiro doce e de sal e cebola?<span>+</span></summary><p>Esses pães são produzidos nos finais de semana ou por encomenda.</p></details>
           <details><summary>Quais sabores de esfirra estão disponíveis?<span>+</span></summary><p>Queijo e Presunto, Queijo e Manjericão e Carne Temperada com Cheddar.</p></details>
           <details><summary>O carrinho fica salvo?<span>+</span></summary><p>Sim. O carrinho é salvo neste navegador para você continuar escolhendo mesmo depois de atualizar a página.</p></details>
         </div>
@@ -286,7 +313,7 @@
   </div>
 
   <div class="modal" id="checkoutModal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
-    <div class="modal__panel checkout-panel"><button class="modal__close" id="closeCheckoutButton" type="button" aria-label="Fechar checkout">×</button><span class="kicker">FINALIZAR PEDIDO</span><h2 id="checkoutTitle">Quase pronto.</h2><p>Preencha seus dados. A mensagem será aberta no WhatsApp para você conferir e enviar.</p>
+    <div class="modal__panel checkout-panel"><button class="modal__close" id="closeCheckoutButton" type="button" aria-label="Fechar checkout">×</button><span class="kicker">FINALIZAR PEDIDO</span><h2 id="checkoutTitle">Quase pronto.</h2><p>Preencha seus dados. A mensagem será aberta no WhatsApp para você conferir e enviar.</p><div class="checkout-availability"><strong>Disponibilidade</strong><span>Esfirras: quinta a sábado, 18h30–22h.</span><span>Pães doce e sal/cebola: finais de semana ou por encomenda.</span></div>
       <form id="checkoutForm" novalidate>
         <div class="form-grid"><label>Nome *<input type="text" name="name" required autocomplete="name" maxlength="80"></label><label>Telefone *<input type="tel" name="phone" required autocomplete="tel" inputmode="tel" maxlength="20"></label></div>
         <fieldset><legend>Como deseja receber?</legend><div class="choice-row"><label><input type="radio" name="delivery" value="Retirada" checked><span>Retirada</span></label><label><input type="radio" name="delivery" value="Entrega"><span>Entrega</span></label></div></fieldset>

@@ -1,4 +1,4 @@
-const CACHE = "caseirinhos-v9-maracuja";
+const CACHE = "caseirinhos-v10-horarios";
 const CORE = [
   "./",
   "index.html",

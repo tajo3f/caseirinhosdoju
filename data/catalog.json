@@ -171,7 +171,7 @@
       "slug": "pao-caseiro-doce",
       "name": "Pão Caseiro Doce",
       "category": "Pães",
-      "description": "Pão caseiro doce, macio e preparado artesanalmente.",
+      "description": "Pão caseiro doce, macio e preparado artesanalmente. Produção nos finais de semana ou por encomenda.",
       "image": "assets/images/pao-doce.webp",
       "badge": "Pão caseiro",
       "options": [
@@ -179,14 +179,15 @@
           "label": "Unidade",
           "price": 15.0
         }
-      ]
+      ],
+      "availability": "Finais de semana ou por encomenda"
     },
     {
       "id": 9,
       "slug": "pao-caseiro-sal-cebola",
       "name": "Pão Caseiro de Sal e Cebola",
       "category": "Pães",
-      "description": "Pão salgado artesanal com cebola.",
+      "description": "Pão caseiro de sal e cebola, preparado artesanalmente. Produção nos finais de semana ou por encomenda.",
       "image": "assets/images/pao-sal-cebola.webp",
       "badge": "Sal e cebola",
       "options": [
@@ -194,7 +195,8 @@
           "label": "Unidade",
           "price": 15.0
         }
-      ]
+      ],
+      "availability": "Finais de semana ou por encomenda"
     },
     {
       "id": 10,
@@ -212,7 +214,7 @@
       "slug": "combos-esfirras-abertas",
       "name": "Combos de Esfirras Abertas",
       "category": "Esfirras",
-      "description": "Escolha o tamanho do combo e um dos sabores disponíveis.",
+      "description": "Combos de esfirras abertas disponíveis de quinta a sábado, das 18h30 às 22h. Escolha o tamanho do combo e um dos sabores.",
       "image": "assets/images/esfirra-carne-cheddar.webp",
       "badge": "Combos",
       "featured": true,
@@ -238,7 +240,8 @@
           "label": "Combo Festa · 18 un.",
           "price": 85.0
         }
-      ]
+      ],
+      "availability": "Quinta, sexta e sábado · 18h30 às 22h"
     },
     {
       "id": 12,
