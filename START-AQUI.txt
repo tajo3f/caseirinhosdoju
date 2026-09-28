@@ -1,0 +1,21 @@
+CASEIRINHOS DO JU — V18.2 (IMAGENS DAS ESFIRRAS + ÍCONES)
+
+SEM PYTHON. Projeto estático, com build por Node.js.
+PREÇOS: edite SOMENTE data/precos.json.
+COMBOS SALGADOS — PREÇOS DEFINITIVOS (SITE E VENDA DIRETA):
+6 unidades = R$ 34,00
+12 unidades = R$ 62,00
+15 unidades = R$ 75,00
+18 unidades = R$ 88,00
+DOCES: Nutella com Morango = R$ 55,00; Banana com Bacon = R$ 55,00; Romeu e Julieta = R$ 50,00.
+Quantidade das opções doces: confirmar com o Ju (Juninho).
+
+PUBLICAÇÃO NO GITHUB/VERCEL: extraia o conteúdo do ZIP GITHUB na raiz do repositório.
+BUILD COMMAND: node scripts/build.mjs
+OUTPUT DIRECTORY: dist
+SITE: https://caseirinhosdoju.com.br/
+
+IMAGENS NOVAS: assets/images/esfirras-bandejas.webp e recortes esfirras-bandeja-*.webp.
+ÍCONES ENVIADOS: assets/icons/whatsapp-verde.png e assets/icons/seta-topo.png.
+ESTILO NOVO: assets/css/v18-2.css.
+Leia ATUALIZACAO-V18-2-IMAGENS-ICONES.md, EDITAR-PRECOS.md e QA-V18-2.md.

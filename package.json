@@ -1,0 +1,17 @@
+{
+  "name": "caseirinhos-do-ju",
+  "private": true,
+  "version": "18.2.0",
+  "description": "Cardápio digital do Caseirinhos do Ju, estático com Node.js e sem dependências externas",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test:availability": "node tests/availability.test.cjs && node tests/availability-v12.test.cjs && node tests/availability-v16.test.cjs",
+    "test:site": "node tests/site-v18.test.cjs && node tests/site-v18-2.test.cjs",
+    "test": "node scripts/build.mjs && node tests/build-node.test.cjs && node tests/site-v18.test.cjs && node tests/site-v18-2.test.cjs && npm run test:availability",
+    "preview": "node scripts/preview.mjs",
+    "dev": "node scripts/build.mjs && node scripts/preview.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
