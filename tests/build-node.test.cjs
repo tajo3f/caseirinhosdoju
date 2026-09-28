@@ -1,0 +1,46 @@
+/** Node-only build regression test. Validates single-source price edits and updates. */
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const os=require('node:os');
+const path=require('node:path');
+const {execFileSync}=require('node:child_process');
+const root=path.resolve(__dirname,'..');
+const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'caseirinhos-v18-'));
+const cp=rel=>fs.cpSync(path.join(root,rel),path.join(tmp,rel),{recursive:true,filter:entry=>!entry.includes(`${path.sep}assets${path.sep}source`)});
+try {
+  for(const name of ['data','assets','templates','index.html','404.html','offline.html','manifest.webmanifest','sw.js','.nojekyll']) cp(name);
+  fs.mkdirSync(path.join(tmp,'scripts'));
+  cp('scripts/build.mjs');
+  const run=()=>execFileSync(process.execPath,[path.join(tmp,'scripts','build.mjs')],{cwd:tmp,env:{...process.env,PATH:path.dirname(process.execPath)},encoding:'utf8'});
+  run();
+  let home=fs.readFileSync(path.join(tmp,'dist','index.html'),'utf8');
+  const worker=fs.readFileSync(path.join(tmp,'dist','sw.js'),'utf8');
+  assert.match(home,/data-option-index="0"[^\n]*R\$ 34,00/);
+  for(const n of [62,75,88])assert.ok(home.includes(`R$ ${n},00`));
+  for(const n of [34,62,75,88])assert.ok(home.includes(`R$ ${n},00`));
+  for(const n of [55,50])assert.ok(home.includes(`R$ ${n},00`));
+  assert.ok(fs.existsSync(path.join(tmp,'dist','produtos','esfirras-doces','index.html')));
+  assert.equal((fs.readFileSync(path.join(tmp,'dist','sitemap.xml'),'utf8').match(/<loc>/g)||[]).length,14);
+  assert.equal(fs.existsSync(path.join(tmp,'dist','ferramentas')),false);
+  assert.equal(fs.existsSync(path.join(tmp,'dist','assets','source')),false);
+  const filepath=path.join(tmp,'data','precos.json');
+  const prices=JSON.parse(fs.readFileSync(filepath,'utf8'));
+  prices['amanteigado-goiabinha']['200g']=17.50;
+  prices['combos-esfirras-abertas']['Combo Família · 15 un.']=82.50;
+  prices['esfirras-doces']['Nutella com Morango']=56.50;
+  prices['combos-esfirras-abertas']['Combo Festa · 18 un.']=90;
+  fs.writeFileSync(filepath,JSON.stringify(prices,null,2));
+  run();home=fs.readFileSync(path.join(tmp,'dist','index.html'),'utf8');
+  assert.match(home,/data-option-index="2"[^\n]*R\$ 82,50/);
+  assert.match(home,/data-sweet-flavor="Nutella com Morango">R\$ 56,50/);
+  assert.match(home,/data-street-units="18">R\$ 90,00/);
+  assert.match(home,/data-street-units="15">R\$ 82,50/);
+  assert.match(home,/data-option-index="3"[^\n]*R\$ 90,00/);
+  const cat=fs.readFileSync(path.join(tmp,'dist','assets','js','catalog-data.js'),'utf8');
+  assert.match(cat,/"price":56\.5/);
+  assert.match(fs.readFileSync(path.join(tmp,'dist','produtos','esfirras-doces','index.html'),'utf8'),/R\$ 56,50/);
+  assert.match(fs.readFileSync(path.join(tmp,'dist','produtos','amanteigado-goiabinha','index.html'),'utf8'),/R\$ 17,50/);
+  assert.notEqual(fs.readFileSync(path.join(tmp,'dist','sw.js'),'utf8'),worker);
+  assert(!cat.includes('_venda_direta_esfirras'),'Duplicate price group must not be generated');
+  console.log('PASS: Node-only build; 13 products; all price classes; SEO, cache, single-file edits');
+}finally{fs.rmSync(tmp,{recursive:true,force:true});}

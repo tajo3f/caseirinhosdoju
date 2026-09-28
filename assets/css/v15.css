@@ -1,0 +1,75 @@
+/* Caseirinhos do Ju V15 — small, purpose-built visual layer. Loaded after V14. */
+:root{--v15-ink:#321c10;--v15-cocoa:#542917;--v15-accent:#bc7130;--v15-cream:#fffbf3;--v15-ease:cubic-bezier(.22,1,.36,1)}
+/* A calmer branded header and a clearer ordering action. */
+.site-header{border-bottom-color:rgba(88,42,15,.12);box-shadow:0 12px 30px rgba(53,26,9,.035)}
+.site-header.is-scrolled{background:rgba(255,251,243,.97);box-shadow:0 12px 34px rgba(53,26,9,.095)}
+.brand{min-width:0}.brand img{border-radius:50%;transition:transform .35s var(--v15-ease)}
+.brand:hover img{transform:rotate(-5deg) scale(1.035)}
+.header-whatsapp{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px}
+.header-whatsapp svg{width:20px;height:20px;flex:0 0 20px;stroke-width:1.8}
+.cart-chip{border-radius:999px;gap:10px;min-height:46px}
+.cart-chip svg{width:19px;height:19px;transition:transform .25s var(--v15-ease)}
+.cart-chip:hover svg{transform:translateY(-2px)}
+.desktop-nav a:focus-visible,.mobile-nav a:focus-visible{border-radius:5px;outline-offset:5px}
+/* Visual hierarchy: warm photographic highlights, concise calls to action. */
+.hero{background:radial-gradient(ellipse at 78% 18%,rgba(244,197,127,.4),transparent 47%),linear-gradient(125deg,#fffbf4 2%,#f7e8cf 53%,#eed1a5 100%)}
+.hero__copy .eyebrow{box-shadow:0 5px 20px rgba(73,35,13,.035)}
+.hero h1{font-size:clamp(3.2rem,5.95vw,6.4rem);letter-spacing:-.058em}
+.hero__actions .btn{transition:transform .23s var(--v15-ease),box-shadow .23s,background .23s}
+.hero__actions .btn--primary:hover{box-shadow:0 18px 34px rgba(67,30,13,.2)}
+.hero-spotlight{box-shadow:0 26px 64px rgba(68,32,12,.17)}
+.hero-spotlight__content{backdrop-filter:blur(13px) saturate(120%);border:1px solid rgba(255,255,255,.76)}
+.hero-spotlight__content a{display:inline-flex;align-items:center;min-height:34px}
+.hero-mini-card{transition:box-shadow .35s var(--v15-ease)}
+.hero-mini-card:hover{box-shadow:0 21px 48px rgba(67,31,12,.18)}
+.hero-proof{border:1px solid rgba(255,230,199,.18)}
+/* A useful catalog shortcut strip, not another advertising block. */
+.category-shortcuts{position:relative;background:#fffbf3;padding-block:24px 28px!important;border-bottom:1px solid rgba(84,40,19,.09)}
+.category-shortcuts__inner{display:grid;grid-template-columns:minmax(160px,1.22fr) repeat(4,minmax(0,1fr));align-items:stretch;gap:12px}
+.category-shortcuts__intro{display:flex;flex-direction:column;justify-content:center;gap:7px;padding:9px 16px 9px 0;min-width:0}
+.category-shortcuts__intro>span{font-size:.59rem;letter-spacing:.17em;font-weight:900;color:#ad6a36}
+.category-shortcuts__intro strong{font-size:1.05rem;line-height:1.24;letter-spacing:-.025em;color:var(--v15-ink)}
+.category-shortcuts__link{display:flex;align-items:center;gap:10px;min-width:0;padding:14px 12px;border:1px solid rgba(85,42,19,.115);border-radius:16px;background:#fff;box-shadow:0 7px 20px rgba(57,28,12,.035);transition:transform .28s var(--v15-ease),border-color .25s,box-shadow .28s}
+.category-shortcuts__link:hover{transform:translateY(-3px);border-color:rgba(168,92,37,.28);box-shadow:0 14px 26px rgba(57,28,12,.08)}
+.category-shortcuts__link>span:nth-child(2){display:grid;gap:4px;min-width:0;flex:1}
+.category-shortcuts__link strong{font-size:.78rem;line-height:1.24;color:#472817}
+.category-shortcuts__link small{font-size:.62rem;line-height:1.35;color:#846959}
+.category-shortcuts__link b{font-size:.92rem;line-height:1;font-weight:700;color:#ab612c;align-self:flex-start}
+.category-shortcuts__dot{position:relative;flex:0 0 27px;height:27px;width:27px;border-radius:9px;background:#f9ead0;border:1px solid #eed7b4}
+.category-shortcuts__dot::after{content:"";position:absolute;inset:8px;border-radius:50%;background:#b97630}
+.category-shortcuts__link:nth-child(3) .category-shortcuts__dot{background:#fbdec6}.category-shortcuts__link:nth-child(3) .category-shortcuts__dot::after{background:#be683d}
+.category-shortcuts__link:nth-child(4) .category-shortcuts__dot{background:#e9dbc5}.category-shortcuts__link:nth-child(4) .category-shortcuts__dot::after{background:#886a46}
+.category-shortcuts__link:nth-child(5) .category-shortcuts__dot{background:#f5dfd0}.category-shortcuts__link:nth-child(5) .category-shortcuts__dot::after{background:#aa5530}
+/* Product cards: improve focus, legibility and immediate product information. */
+.catalog{background:linear-gradient(180deg,#fffcf7,#f7ebd9)}
+.products-grid .product-card{box-shadow:0 12px 31px rgba(55,26,10,.063);border-color:rgba(75,38,18,.12)}
+.products-grid .product-card:hover,.products-grid .product-card:focus-within{border-color:rgba(171,97,41,.39);box-shadow:0 25px 48px rgba(55,26,10,.12)}
+.product-media{background:radial-gradient(circle at 50% 34%,#ffedce,#e8cda8)}
+.product-media__closed{backdrop-filter:blur(6px)}
+.product-badge{backdrop-filter:blur(8px)}
+.product-price{border-top:1px solid rgba(77,37,15,.12);padding-top:12px}
+.product-price__value{font-variant-numeric:tabular-nums;letter-spacing:-.036em}
+.product-actions .add-product:not(:disabled){background:var(--v15-ink);border-color:var(--v15-ink);box-shadow:0 9px 22px rgba(49,25,14,.13)}
+.product-actions .add-product:not(:disabled):hover{background:#6a371c;box-shadow:0 13px 26px rgba(49,25,14,.19)}
+.product-select:focus-visible{outline:3px solid #ac652b;outline-offset:2px}
+.product-card .product-image-link img{transition:transform .65s var(--v15-ease),filter .4s}
+/* Preserve full packaging in recently edited photos rather than cropping product edges. */
+.products-grid [data-product-id="1"] .product-image-link img,.products-grid [data-product-id="4"] .product-image-link img,.products-grid [data-product-id="5"] .product-image-link img{object-fit:contain!important;background:#2e5b3a}
+/* Real accessible floating action controls: no text glyphs or emoji. */
+.floating-actions{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(22px,env(safe-area-inset-bottom));width:58px;height:58px;z-index:870;pointer-events:none;transition:bottom .25s var(--v15-ease),opacity .25s}
+.floating-actions .whatsapp-float{position:relative!important;right:auto!important;bottom:auto!important;width:58px;height:58px;display:grid!important;place-items:center;border:1px solid rgba(255,255,255,.4);background:#17844b;color:#fff;box-shadow:0 15px 33px rgba(9,84,43,.28),inset 0 1px 1px rgba(255,255,255,.16);border-radius:18px;font-size:inherit;pointer-events:auto;transition:transform .3s var(--v15-ease),box-shadow .3s,background .2s}
+.floating-actions .whatsapp-float svg{width:29px;height:29px;fill:none;stroke:currentColor;stroke-width:1.55}
+.floating-actions .whatsapp-float:hover{transform:translateY(-4px) scale(1.045);background:#11703e;box-shadow:0 20px 38px rgba(8,82,40,.34)}
+.floating-actions .back-top{position:absolute!important;right:5px!important;bottom:70px!important;width:48px;height:48px;display:grid;place-items:center;padding:0;background:rgba(255,251,241,.97);border:1px solid rgba(72,33,15,.16);border-radius:16px;color:#442514;box-shadow:0 9px 23px rgba(54,28,12,.115);pointer-events:none;visibility:hidden;opacity:0;transform:translateY(9px) scale(.95);transition:opacity .26s ease,transform .3s var(--v15-ease),visibility .26s,box-shadow .2s}
+.floating-actions .back-top svg{width:22px;height:22px}
+.floating-actions .back-top.show{pointer-events:auto;visibility:visible;opacity:1;transform:none}
+.floating-actions .back-top.show:hover{transform:translateY(-3px);box-shadow:0 14px 25px rgba(54,28,12,.16)}
+.floating-actions :is(.whatsapp-float,.back-top):focus-visible{outline:3px solid #b56f30;outline-offset:4px}
+body.no-scroll .floating-actions{opacity:0;visibility:hidden;pointer-events:none}
+/* Keep the dock above the sticky cart on narrow screens, not over its CTA. */
+@media(max-width:850px){.floating-actions{right:max(13px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom))}.has-mobile-cart .floating-actions{bottom:calc(87px + env(safe-area-inset-bottom))}.floating-actions .whatsapp-float{height:51px;width:51px;border-radius:15px}.floating-actions{width:51px;height:51px}.floating-actions .whatsapp-float svg{height:26px;width:26px}.floating-actions .back-top{width:43px;height:43px;right:4px!important;bottom:61px!important;border-radius:13px}}
+@media(max-width:1140px){.category-shortcuts__inner{grid-template-columns:repeat(4,minmax(0,1fr))}.category-shortcuts__intro{grid-column:1/-1;padding:0 0 8px}.category-shortcuts__intro strong{font-size:1.13rem}}
+@media(max-width:760px){.category-shortcuts{padding-block:16px 20px!important}.category-shortcuts__inner{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;overflow:visible;padding:0}.category-shortcuts__intro{grid-column:1/-1;min-width:0;padding:0 3px 5px}.category-shortcuts__link{min-width:0;min-height:70px;padding:11px;align-items:flex-start}.category-shortcuts__link small{display:none}.category-shortcuts__link strong{line-height:1.4}.hero{padding-top:48px}.hero h1{text-wrap:balance}.product-price__value{font-size:clamp(1.4rem,5vw,1.75rem)}}
+@media(max-width:430px){.category-shortcuts__intro{grid-column:1/-1}.category-shortcuts__link{min-height:68px}.floating-actions{right:max(12px,env(safe-area-inset-right))}.floating-actions .whatsapp-float{width:48px;height:48px}.floating-actions .back-top{bottom:59px!important}.product-price{padding-top:10px}}
+@media(hover:none),(pointer:coarse){.products-grid .product-card:hover{box-shadow:0 12px 31px rgba(55,26,10,.063)}.floating-actions .whatsapp-float:hover,.floating-actions .back-top.show:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.category-shortcuts__link,.floating-actions,.floating-actions .whatsapp-float,.floating-actions .back-top,.hero__actions .btn,.product-card .product-image-link img{transition:none!important;animation:none!important;scroll-behavior:auto!important}}

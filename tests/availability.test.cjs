@@ -1,0 +1,17 @@
+const assert = require('node:assert/strict');
+const rules = require('../assets/js/availability.js');
+const at = (localISO) => new Date(localISO + '-03:00');
+const state = (kind, atTime) => rules.getState(kind, at(atTime));
+assert.equal(state('esfirra','2026-09-24T18:29:00').allowed, false, 'Thursday before opening');
+assert.equal(state('esfirra','2026-09-24T18:30:00').allowed, true, 'Thursday at opening');
+assert.equal(state('esfirra','2026-09-24T21:59:00').allowed, true, 'Thursday before closing');
+assert.equal(state('esfirra','2026-09-24T22:00:00').allowed, false, 'Thursday at closing');
+assert.equal(state('esfirra','2026-09-25T18:30:00').allowed, true, 'Friday evening');
+assert.equal(state('esfirra','2026-09-26T19:30:00').allowed, true, 'Saturday evening');
+assert.equal(state('esfirra','2026-09-27T19:30:00').allowed, false, 'Sunday closed');
+assert.equal(state('bread','2026-09-25T12:00:00').allowed, false, 'Friday bread via enquiry only');
+assert.equal(state('bread','2026-09-26T10:00:00').allowed, true, 'Saturday bread direct');
+assert.equal(state('bread','2026-09-27T10:00:00').allowed, true, 'Sunday bread direct');
+assert.equal(state('bread','2026-09-28T10:00:00').allowed, false, 'Monday bread via enquiry only');
+assert.equal(state('regular','2026-09-28T10:00:00').allowed, true, 'Biscuit available for request');
+console.log('PASS: 12 availability tests (America/Sao_Paulo)');
