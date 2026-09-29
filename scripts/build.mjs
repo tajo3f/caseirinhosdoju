@@ -130,6 +130,7 @@ function renderProduct(product, styles) {
   <link rel="stylesheet" href="../../assets/css/v15.css">
   <link rel="stylesheet" href="../../assets/css/v16.css">
   <link rel="stylesheet" href="../../assets/css/v18.css">
+  <link rel="stylesheet" href="../../assets/css/v19.css">
   <script type="application/ld+json">${jsJSON([productSchema,breadcrumb])}</script>
 </head>
 <body class="product-page">
@@ -197,7 +198,7 @@ async function build() {
   await writeFile(path.join(DIST,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${url('sitemap.xml')}\n`,ENCODING);
   // Service worker cache key includes all generated content, scripts and images.
   const digest = createHash('sha256');
-  const core = ['index.html','assets/js/catalog-data.js','assets/js/app.js','assets/js/availability.js','assets/js/product-page.js','assets/js/v14-ui.js','assets/js/v15-ui.js','assets/js/v16-ui.js','assets/css/style.css','assets/css/upgrade.css','assets/css/v12.css','assets/css/v13.css','assets/css/v14.css','assets/css/v15.css','assets/css/v16.css','assets/css/v18.css','assets/css/v18-2.css'];
+  const core = ['index.html','assets/js/catalog-data.js','assets/js/app.js','assets/js/availability.js','assets/js/product-page.js','assets/js/v14-ui.js','assets/js/v15-ui.js','assets/js/v16-ui.js','assets/js/v19-ui.js','assets/css/style.css','assets/css/upgrade.css','assets/css/v12.css','assets/css/v13.css','assets/css/v14.css','assets/css/v15.css','assets/css/v16.css','assets/css/v18.css','assets/css/v18-2.css','assets/css/v19.css'];
   for(const name of core) {digest.update(name);digest.update(await readFile(path.join(DIST,name)));}
   for (const folder of ['images', 'icons']) {
     for (const name of (await readdir(path.join(DIST,'assets',folder))).sort()) {
@@ -205,7 +206,7 @@ async function build() {
       if ((await stat(file)).isFile()) {digest.update(`assets/${folder}/${name}`);digest.update(await readFile(file));}
     }
   }
-  const cacheId=`caseirinhos-v18-2-${digest.digest('hex').slice(0,12)}`;
+  const cacheId=`caseirinhos-v19-${digest.digest('hex').slice(0,12)}`;
   const worker=await readFile(path.join(DIST,'sw.js'),ENCODING);
   assert(/const CACHE = "[^"]+";/.test(worker),'Service worker sem identificador de cache');
   await writeFile(path.join(DIST,'sw.js'),worker.replace(/const CACHE = "[^"]+";/,`const CACHE = "${cacheId}";`),ENCODING);
