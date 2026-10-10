@@ -1,0 +1,30 @@
+{
+  "version": "23.0",
+  "currency": "BRL",
+  "updatedAt": "2025-10-10",
+  "note": "Fonte central de preços. Não edite valores em outros arquivos. O build gera assets/js/catalog-data.js, as páginas de produto e o JSON-LD a partir daqui.",
+  "items": {
+    "goiabinha.200g": 15,
+    "goiabinha.500g": 26,
+    "goiabinha.1kg": 53,
+    "ninho.200g": 15,
+    "ninho.500g": 26,
+    "ninho.1kg": 53,
+    "casadinho.200g": 15,
+    "casadinho.500g": 26,
+    "casadinho.1kg": 53,
+    "maracuja.200g": 15,
+    "maracuja.500g": 26,
+    "maracuja.1kg": 53,
+    "pao-doce.Unidade": 15,
+    "pao-sal-cebola.Unidade": 15,
+    "combos.6": 34,
+    "combos.12": 62,
+    "combos.15": 75,
+    "combos.18": 88,
+    "coca.Unidade": 12,
+    "doce.nutella-morango": 55,
+    "doce.banana-bacon": 55,
+    "doce.romeu-julieta": 50
+  }
+}

@@ -1,0 +1,212 @@
+/* ==========================================================================
+   Caseirinhos do Ju · V23 · camada final de acabamento, acessibilidade e
+   correções. Carregada por último em todas as páginas.
+   ========================================================================== */
+
+/* 1. Tipografia ------------------------------------------------------------ */
+:root{
+  /* Stack de sistema: zero requisições externas, zero CLS por fonte.
+     "Inter" não é carregada em nenhum lugar, por isso não é declarada. */
+  --font-sans: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;
+  --font-display: "Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  /* Contraste AA para texto secundário sobre fundos creme. */
+  --muted:#6f5b4e;
+  --v22-muted:#665448;
+}
+html,body{font-family:var(--font-sans)}
+.hero h1 em,.product-page__copy h1,.brand-story__copy h2,.drink-card h2,
+.section-heading h2,.final-cta h2,.hero-proof strong{font-family:var(--font-display)}
+button,input,select,textarea{font-family:inherit}
+body{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{text-wrap:balance}
+p{text-wrap:pretty}
+
+/* 2. Foco visível consistente e acessível -------------------------------- */
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{
+  outline:3px solid #a9551b;
+  outline-offset:3px;
+  border-radius:8px;
+}
+/* Controles com input visualmente oculto: o anel de foco vai para o rótulo. */
+.combo-flavor input:focus-visible + span,
+.choice-row input:focus-visible + span{
+  outline:3px solid #a9551b;
+  outline-offset:3px;
+}
+/* Em fundos escuros, o anel claro garante contraste. */
+.combos :where(a,button):focus-visible,
+.drink-section :where(a,button):focus-visible,
+.final-cta :where(a,button):focus-visible,
+.site-footer :where(a,button):focus-visible{
+  outline-color:#ffd79b;
+}
+.skip-link{z-index:10000}
+
+/* 3. Header: sem sobreposição, respeita safe-area ------------------------- */
+.site-header{padding-top:env(safe-area-inset-top,0px)}
+/* O bloco promocional do header é o primeiro a ceder espaço: entre ~1251px e
+   ~1440px o menu desktop + WhatsApp + carrinho não cabem junto dele. */
+@media (max-width:1480px){.header-promise{display:none!important}}
+@media (max-width:1420px){.desktop-nav{gap:clamp(9px,1.05vw,18px)}.desktop-nav a{font-size:.8rem}}
+@media (max-width:1300px){.desktop-nav{gap:clamp(7px,.9vw,14px)}.header-whatsapp{padding:9px 12px}.cart-chip{padding:0 8px 0 12px}}
+.header__inner{min-width:0}
+.brand,.brand__text{min-width:0}
+.brand__text strong,.brand__text small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mobile-nav{max-height:calc(100dvh - var(--header-h) - env(safe-area-inset-top,0px) - 16px);overflow-y:auto}
+.mobile-nav a{min-height:48px}
+
+/* 4. Cartões e mídia: nada estoura, nada deforma -------------------------- */
+.product-media img,.editorial-card img,.flavor-media img,.hero-mini-card img,
+.drink-card__media img,.brand-story__media>img,.product-page__media img{max-width:100%}
+.product-content,.combo-card__body,.flavor-card,.availability-card__copy{min-width:0}
+.product-content h3,.combo-card h3,.flavor-card h3{overflow-wrap:break-word}
+
+/* 5. Carrinho / modais: cabeçalho e rodapé sempre alcançáveis ------------- */
+.cart-drawer{height:100dvh}
+.drawer__content{overscroll-behavior:contain}
+.drawer__footer{padding-bottom:max(18px,env(safe-area-inset-bottom,0px))}
+.modal__panel{overscroll-behavior:contain}
+
+/* 6. Microcopy de confiança (não intrusiva) ------------------------------- */
+.trust-strip{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:center;
+  padding:14px 18px;margin:0;font-size:.78rem;color:#6b5647;background:#fff7ea;
+  border-top:1px solid rgba(87,45,22,.1);border-bottom:1px solid rgba(87,45,22,.1)}
+.trust-strip span{display:inline-flex;align-items:center;gap:7px}
+.trust-strip strong{color:#4a2513}
+
+/* 7. Movimento reduzido já é respeitado; reforço para âncoras ------------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  .scroll-progress{display:none}
+}
+
+/* 8. Impressão (comprovante do pedido / orçamento) ------------------------ */
+@media print{
+  .site-header,.announcement,.floating-actions,.mobile-cart,.scroll-progress,
+  .cart-drawer,.modal,.overlay,.toast,.skip-link,.whatsapp-float,.back-top{display:none!important}
+  body{background:#fff!important;color:#000!important}
+  a[href]::after{content:" (" attr(href) ")";font-size:.7em;color:#444}
+  .hero,.catalog,.combos,.flavors,.drink-section,.brand-story{background:#fff!important}
+}
+
+/* 9. Telas muito estreitas (<=320px) -------------------------------------- */
+@media (max-width:330px){
+  .shell{width:calc(100% - 20px)}
+  .hero__actions{grid-template-columns:1fr}
+  .product-actions{grid-template-columns:1fr}
+  .qty-control{width:100%;justify-content:space-between}
+}
+
+/* ========================================================================== 
+   V23.1 · Correções visuais e de responsividade
+   - Corrige contraste do bloco "Comece por aqui"
+   - Remove colisões/empilhamento visual em atalhos de categoria
+   - Reforça contraste em superfícies escuras
+   - Melhora toque, formulários e comportamento mobile
+   ========================================================================== */
+
+/* Atalhos de categoria: composição premium e sem sobreposição. */
+.category-shortcuts__inner{
+  display:grid!important;
+  grid-template-columns:minmax(220px,1.18fr) repeat(4,minmax(0,1fr))!important;
+  align-items:stretch!important;
+  gap:12px!important;
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  overflow:visible!important;
+  box-shadow:none!important;
+}
+.category-shortcuts__intro{
+  grid-column:auto!important;
+  min-width:0!important;
+  min-height:112px!important;
+  padding:22px 22px!important;
+  border:1px solid rgba(255,255,255,.08)!important;
+  border-radius:22px!important;
+  background:linear-gradient(145deg,#5a2614 0%,#3f1b10 100%)!important;
+  color:#fffaf3!important;
+  box-shadow:0 16px 34px rgba(63,27,16,.14)!important;
+  overflow:hidden!important;
+}
+.category-shortcuts__intro>span{
+  color:#f5c27f!important;
+  font-size:.62rem!important;
+  letter-spacing:.18em!important;
+}
+.category-shortcuts__intro strong{
+  color:#fffaf3!important;
+  font-size:clamp(1rem,1.25vw,1.16rem)!important;
+  line-height:1.28!important;
+  letter-spacing:-.025em!important;
+  text-shadow:0 1px 0 rgba(0,0,0,.08);
+}
+.category-shortcuts__link{
+  min-width:0!important;
+  min-height:112px!important;
+  padding:18px 16px!important;
+  border:1px solid rgba(85,42,19,.12)!important;
+  border-radius:20px!important;
+  background:#fff!important;
+  box-shadow:0 10px 24px rgba(57,28,12,.05)!important;
+  overflow:hidden!important;
+}
+.category-shortcuts__link:hover{
+  background:#fff9f1!important;
+  border-color:rgba(168,92,37,.28)!important;
+  box-shadow:0 16px 30px rgba(57,28,12,.09)!important;
+}
+.category-shortcuts__link strong{color:#3d2114!important;font-size:.82rem!important}
+.category-shortcuts__link small{color:#745f52!important}
+.category-shortcuts__dot{flex:0 0 30px!important;width:30px!important;height:30px!important}
+
+/* Contraste explícito em superfícies escuras para evitar herança de versões antigas. */
+.quick-path strong,.quick-path span{color:#fff!important}
+.quick-path small{color:rgba(255,255,255,.72)!important}
+.combo-card--dark{color:#fff!important}
+.combo-card--dark h3,.combo-card--dark strong{color:#fff!important}
+.combo-card--dark p{color:#ead8cc!important}
+.combo-card--dark .combo-card__qty{color:#ffd69f!important}
+.esfirra-gallery h3{color:#fff!important}
+.site-footer .footer__credit{color:rgba(255,247,236,.72)!important}
+.site-footer .footer__credit strong{color:#f1bd77!important}
+
+/* Controles mais previsíveis em telas touch / Safari iOS. */
+a,button,[role="button"]{touch-action:manipulation}
+@media(max-width:780px){
+  input,select,textarea{font-size:16px!important}
+  .category-shortcuts{padding-top:38px!important;padding-bottom:42px!important}
+  .category-shortcuts__inner{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+  }
+  .category-shortcuts__intro{
+    grid-column:1/-1!important;
+    min-height:auto!important;
+    padding:20px!important;
+    border-radius:20px!important;
+  }
+  .category-shortcuts__link{
+    min-height:78px!important;
+    padding:13px!important;
+    border-radius:17px!important;
+    align-items:flex-start!important;
+  }
+  .category-shortcuts__link small{display:none!important}
+  .category-shortcuts__link b{margin-left:auto!important}
+}
+@media(max-width:410px){
+  .category-shortcuts__inner{grid-template-columns:1fr!important}
+  .category-shortcuts__intro{grid-column:1!important}
+  .category-shortcuts__link{min-height:70px!important;align-items:center!important}
+  .category-shortcuts__link small{display:block!important;font-size:.64rem!important}
+}
+
+/* Evita que elementos focados ou animados gerem recorte lateral no mobile. */
+@media(max-width:600px){
+  .category-shortcuts,.catalog,.flavors,.combos{overflow-x:clip}
+  .site-footer .footer__bottom{gap:10px!important}
+  .site-footer .footer__credit{font-size:.78rem!important}
+}

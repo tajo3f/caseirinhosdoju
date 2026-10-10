@@ -1,0 +1,24 @@
+{
+  "name": "caseirinhos-do-ju",
+  "version": "23.1.0",
+  "private": true,
+  "description": "Site oficial do Caseirinhos do Ju — HTML, CSS e JavaScript puro, com build em Node.js e deploy no GitHub + Vercel.",
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:root": "node scripts/build.mjs --emit-root",
+    "preview": "node scripts/build.mjs && node scripts/serve.mjs",
+    "check": "node --check scripts/build.mjs && node --check assets/js/catalog-data.js && node --check assets/js/availability.js && node --check assets/js/app.js && node --check assets/js/ui.js && node --check assets/js/vfx.js && node --check assets/js/product-page.js && node --check sw.js",
+    "test": "node scripts/build.mjs --emit-root && node tests/validate-catalog.mjs && node tests/availability.test.mjs && node tests/validate-dist.mjs"
+  },
+  "keywords": [
+    "caseirinhos-do-ju",
+    "cardapio",
+    "whatsapp",
+    "padaria-artesanal"
+  ],
+  "license": "UNLICENSED"
+}

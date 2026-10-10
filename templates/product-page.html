@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="{{CSP}}">
+  <meta name="theme-color" content="#6a2b12">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="format-detection" content="telephone=no">
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="author" content="Caseirinhos do Ju">
+  <link rel="canonical" href="{{CANONICAL}}">
+  <meta property="og:type" content="product">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Caseirinhos do Ju">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="{{CANONICAL}}">
+  <meta property="og:image" content="{{OG_IMAGE}}">
+  <meta property="og:image:width" content="{{OG_IMAGE_WIDTH}}">
+  <meta property="og:image:height" content="{{OG_IMAGE_HEIGHT}}">
+  <meta property="og:image:alt" content="{{NAME}} — Caseirinhos do Ju">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{TITLE}}">
+  <meta name="twitter:description" content="{{DESCRIPTION}}">
+  <meta name="twitter:image" content="{{OG_IMAGE}}">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/icon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/icons/icon-180.png">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <link rel="preload" as="image" href="../../{{IMAGE}}" fetchpriority="high" type="image/webp">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/sections.css">
+  <link rel="stylesheet" href="../../assets/css/product-page.css">
+  <link rel="stylesheet" href="../../assets/css/v23.css">
+  <script type="application/ld+json">{{JSONLD}}</script>
+</head>
+<body class="product-page">
+  <header class="product-page__header"><div class="shell"><a class="product-page__brand" href="../../index.html" aria-label="Caseirinhos do Ju — página inicial"><img src="../../assets/images/logo.webp" alt="Caseirinhos do Ju" width="54" height="54"><span>Caseirinhos do Ju</span></a><span class="product-page__promise" aria-label="Pedido simples pelo WhatsApp"><span>atendimento</span><strong>Escolha com facilidade</strong></span><a class="product-page__back" href="../../index.html#cardapio">← Voltar ao cardápio</a></div></header>
+  <main class="product-page__main"><div class="shell product-page__grid">
+    <figure class="product-page__media" data-product-slug="{{SLUG}}" data-vfx-glare><img src="../../{{IMAGE}}" alt="{{NAME}} - Caseirinhos do Ju" width="{{IMAGE_WIDTH}}" height="{{IMAGE_HEIGHT}}" fetchpriority="high" decoding="async"></figure>
+    <section class="product-page__copy"><span class="kicker">{{CATEGORY}}</span><h1>{{NAME}}</h1><p>{{DESCRIPTION}}</p>{{AVAILABILITY_BLOCK}}{{SHELF_BLOCK}}{{PURCHASE_NOTE_BLOCK}}{{IMAGE_NOTE_BLOCK}}{{PRICE_BLOCK}}{{OPTIONS_BLOCK}}{{FLAVORS_BLOCK}}{{PICKER_BLOCK}}<div id="productLiveStatus" class="product-page__live" role="status" aria-live="polite">Verificando horário de Brasília…</div><div class="product-page__actions"><a class="btn btn--primary product-page__action-pending" id="productOrderAction" href="{{ORDER_URL}}" target="_blank" rel="noopener noreferrer" data-product-type="{{TYPE}}" data-product-name="{{NAME}}" data-order-url="{{ORDER_URL}}" data-enquiry-url="{{ENQUIRY_URL}}">{{ORDER_LABEL}}</a><a class="btn btn--secondary" href="../../index.html#cardapio">Continuar escolhendo</a></div><p class="product-page__note">A disponibilidade, retirada, entrega e eventual taxa são confirmadas diretamente pelo atendimento no WhatsApp.</p></section>
+  </div></main>
+  <script src="../../assets/js/availability.js" defer></script>
+  <script src="../../assets/js/product-page.js" defer></script>
+  <script src="../../assets/js/vfx.js" defer></script>
+</body>
+</html>

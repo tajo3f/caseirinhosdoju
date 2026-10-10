@@ -1,0 +1,252 @@
+{
+  "version": "23.1",
+  "currency": "BRL",
+  "products": [
+    {
+      "id": 1,
+      "slug": "amanteigado-goiabinha",
+      "name": "Amanteigado de Goiabinha",
+      "category": "Amanteigados",
+      "description": "Biscoito amanteigado com goiabinha, delicado e feito artesanalmente.",
+      "image": "assets/images/goiabinha.webp",
+      "imageWidth": 900,
+      "imageHeight": 1200,
+      "badge": "Artesanal",
+      "featured": true,
+      "options": [
+        {
+          "label": "200g",
+          "priceKey": "goiabinha.200g"
+        },
+        {
+          "label": "500g",
+          "priceKey": "goiabinha.500g"
+        },
+        {
+          "label": "1kg",
+          "priceKey": "goiabinha.1kg"
+        }
+      ],
+      "shelfLifeDays": 60
+    },
+    {
+      "id": 4,
+      "slug": "amanteigado-ninho-chocolate",
+      "name": "Amanteigado de Ninho com Chocolate",
+      "category": "Amanteigados",
+      "description": "Amanteigado artesanal com recheio de chocolate.",
+      "image": "assets/images/ninho-chocolate.webp",
+      "imageWidth": 900,
+      "imageHeight": 1200,
+      "badge": "Ninho + chocolate",
+      "options": [
+        {
+          "label": "200g",
+          "priceKey": "ninho.200g"
+        },
+        {
+          "label": "500g",
+          "priceKey": "ninho.500g"
+        },
+        {
+          "label": "1kg",
+          "priceKey": "ninho.1kg"
+        }
+      ],
+      "shelfLifeDays": 60
+    },
+    {
+      "id": 5,
+      "slug": "casadinho-classico",
+      "name": "Casadinho",
+      "category": "Casadinhos",
+      "description": "Biscoito amanteigado recheado, preparado artesanalmente.",
+      "image": "assets/images/casadinho.webp",
+      "imageWidth": 900,
+      "imageHeight": 1200,
+      "badge": "Clássico",
+      "options": [
+        {
+          "label": "200g",
+          "priceKey": "casadinho.200g"
+        },
+        {
+          "label": "500g",
+          "priceKey": "casadinho.500g"
+        },
+        {
+          "label": "1kg",
+          "priceKey": "casadinho.1kg"
+        }
+      ],
+      "shelfLifeDays": 60
+    },
+    {
+      "id": 7,
+      "slug": "amanteigado-maracuja-chocolate",
+      "name": "Amanteigado de Maracujá com Chocolate",
+      "category": "Amanteigados",
+      "description": "Amanteigado artesanal de maracujá com cobertura de chocolate, combinando o toque cítrico da fruta com o sabor do chocolate.",
+      "image": "assets/images/maracuja-chocolate.webp",
+      "imageWidth": 1254,
+      "imageHeight": 1254,
+      "badge": "Maracujá + chocolate",
+      "options": [
+        {
+          "label": "200g",
+          "priceKey": "maracuja.200g"
+        },
+        {
+          "label": "500g",
+          "priceKey": "maracuja.500g"
+        },
+        {
+          "label": "1kg",
+          "priceKey": "maracuja.1kg"
+        }
+      ],
+      "shelfLifeDays": 60
+    },
+    {
+      "id": 8,
+      "slug": "pao-caseiro-doce",
+      "name": "Pão Caseiro Doce",
+      "category": "Pães",
+      "description": "Pão caseiro doce, macio e preparado artesanalmente. Produção nos finais de semana ou por encomenda.",
+      "image": "assets/images/pao-doce.webp",
+      "imageWidth": 1200,
+      "imageHeight": 1200,
+      "badge": "Pão caseiro",
+      "availability": "Finais de semana ou por encomenda",
+      "options": [
+        {
+          "label": "Unidade",
+          "priceKey": "pao-doce.Unidade"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "slug": "pao-caseiro-sal-cebola",
+      "name": "Pão Caseiro de Sal e Cebola",
+      "category": "Pães",
+      "description": "Pão caseiro de sal e cebola, preparado artesanalmente. Produção nos finais de semana ou por encomenda.",
+      "image": "assets/images/pao-sal-cebola.webp",
+      "imageWidth": 1200,
+      "imageHeight": 1200,
+      "badge": "Sal e cebola",
+      "availability": "Finais de semana ou por encomenda",
+      "options": [
+        {
+          "label": "Unidade",
+          "priceKey": "pao-sal-cebola.Unidade"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "slug": "pao-hamburguer-caseiro",
+      "name": "Pão de Hambúrguer Caseiro",
+      "category": "Pães",
+      "description": "Pão de hambúrguer caseiro, macio e leve.",
+      "image": "assets/images/pao-hamburguer.webp",
+      "imageWidth": 1200,
+      "imageHeight": 1200,
+      "badge": "Sob encomenda",
+      "consultPrice": true,
+      "options": []
+    },
+    {
+      "id": 11,
+      "slug": "combos-esfirras-abertas",
+      "name": "Combos de Esfirras Abertas",
+      "category": "Esfirras",
+      "description": "Combos de esfirras abertas disponíveis de quinta a sábado, das 18h30 às 22h. Escolha o tamanho do combo e um dos sabores, incluindo a opção Mista.",
+      "image": "assets/images/esfirras-bandejas-destaque.webp",
+      "imageWidth": 797,
+      "imageHeight": 1135,
+      "badge": "Combos",
+      "featured": true,
+      "flavors": [
+        "Queijo e Presunto",
+        "Queijo e Manjericão",
+        "Carne Temperada com Cheddar",
+        "Mista"
+      ],
+      "options": [
+        {
+          "label": "Combo Esfirra · 6 un.",
+          "priceKey": "combos.6"
+        },
+        {
+          "label": "Combo Casal · 12 un.",
+          "priceKey": "combos.12"
+        },
+        {
+          "label": "Combo Família · 15 un.",
+          "priceKey": "combos.15"
+        },
+        {
+          "label": "Combo Festa · 18 un.",
+          "priceKey": "combos.18"
+        }
+      ],
+      "availability": "Quinta, sexta e sábado · 18h30 às 22h",
+      "imageNote": "Imagem de apresentação das bandejas; a composição varia conforme o pedido."
+    },
+    {
+      "id": 12,
+      "slug": "coca-cola-1-5l",
+      "name": "Coca-Cola 1,5L",
+      "category": "Bebidas",
+      "description": "Coca-Cola 1,5L para acompanhar o pedido.",
+      "image": "assets/images/coca-cola-1-5l.webp",
+      "imageWidth": 1000,
+      "imageHeight": 1000,
+      "badge": "1,5L",
+      "featured": true,
+      "options": [
+        {
+          "label": "Garrafa 1,5L",
+          "priceKey": "coca.Unidade"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "slug": "esfirras-doces",
+      "name": "Esfirras Doces",
+      "category": "Esfirras",
+      "description": "Escolha entre Nutella com Morango, Banana com Bacon e Romeu e Julieta. Quantidade de unidades por opção a confirmar com o Ju.",
+      "image": "assets/images/esfirras-doces-foto-real.webp",
+      "imageWidth": 720,
+      "imageHeight": 1280,
+      "badge": "Novidade · Doces",
+      "featured": true,
+      "purchaseNote": "Quantidade de unidades por opção sujeita à confirmação com o Ju pelo WhatsApp.",
+      "options": [
+        {
+          "label": "Nutella com Morango",
+          "priceKey": "doce.nutella-morango"
+        },
+        {
+          "label": "Banana com Bacon",
+          "priceKey": "doce.banana-bacon"
+        },
+        {
+          "label": "Romeu e Julieta",
+          "priceKey": "doce.romeu-julieta"
+        }
+      ],
+      "availability": "Quinta, sexta e sábado · 18h30 às 22h",
+      "imageNote": "Foto real das esfirras doces; a apresentação pode variar conforme o sabor e o pedido."
+    }
+  ],
+  "redirects": [
+    {
+      "from": "casadinho-maracuja-chocolate",
+      "to": "amanteigado-maracuja-chocolate",
+      "reason": "Slug antigo do produto renomeado."
+    }
+  ]
+}

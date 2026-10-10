@@ -1,0 +1,39 @@
+/* Caseirinhos do Ju · product detail page layout (extracted from inline <style> for strict CSP). */
+.product-page{min-height:100vh;background:var(--cream-50)}
+    .product-page__header{border-bottom:1px solid var(--line);background:rgba(255,250,240,.94);backdrop-filter:blur(16px);position:sticky;top:0;z-index:20}
+    .product-page__header .shell{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .product-page__brand{display:flex;align-items:center;gap:12px;color:var(--brown-950);text-decoration:none;font-weight:900}
+    .product-page__brand img{width:54px;height:54px;border-radius:50%;object-fit:cover}
+    .product-page__back{font-size:.82rem;color:var(--brown-700);font-weight:800;text-decoration:none}
+    .product-page__main{padding:clamp(40px,7vw,90px) 0}
+    .product-page__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:clamp(30px,6vw,82px);align-items:start}
+    .product-page__media{margin:0;border-radius:32px;overflow:hidden;background:#fff;box-shadow:var(--shadow-lg);aspect-ratio:1/1;position:sticky;top:110px}
+    .product-page__media img{width:100%;height:100%;object-fit:cover;display:block}
+    .product-page__copy{padding-top:10px}
+    .product-page__copy .kicker{margin-bottom:12px}
+    .product-page__copy h1{font-family:var(--font-display);font-size:clamp(3rem,7vw,6.6rem);line-height:.88;letter-spacing:-.055em;margin:0 0 22px;color:var(--brown-950)}
+    .product-page__copy>p{font-size:1.05rem;line-height:1.75;color:var(--muted);max-width:58ch}
+    .product-page__price{display:flex;align-items:baseline;gap:10px;margin:28px 0 20px;color:var(--brown-950)}
+    .product-page__price strong{font-size:2.1rem}.price-from,.price-consult{font-size:.82rem;font-weight:800;color:var(--muted)}
+    .product-page__options{list-style:none;padding:0;margin:0 0 26px;border-top:1px solid var(--line)}
+    .product-page__options li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+    .product-page__options span{color:var(--muted)}
+    .product-page__actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .product-page__actions .btn{text-decoration:none}
+    .flavors{margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}.flavors h2{font-size:1.15rem;margin:0 0 14px}.flavors ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0}.flavors li{padding:9px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.78rem;font-weight:750}
+    .product-page__availability{display:flex;align-items:center;gap:12px;margin:22px 0;padding:15px 17px;border:1px solid rgba(201,117,24,.22);border-radius:18px;background:#fff7e8}.product-page__availability>span{width:10px;height:10px;border-radius:50%;background:var(--orange-400);box-shadow:0 0 0 5px rgba(201,117,24,.12);flex:0 0 auto}.product-page__availability div{display:grid;gap:2px}.product-page__availability small{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:850}.product-page__availability strong{font-size:.9rem;color:var(--brown-900)}
+    .product-page__note{margin-top:24px;padding:16px 18px;border-radius:18px;background:var(--cream-100);font-size:.78rem;color:var(--muted);line-height:1.6}
+    .product-page__shelf{margin:15px 0;padding:12px 15px;border:1px solid #ebd0aa;background:#fff2db;border-radius:14px;font-size:.83rem}
+    .product-page__live{margin-top:10px;padding:12px 15px;border:1px solid #e4c6a9;border-radius:16px;background:#fff6e6;line-height:1.5;font-weight:700;font-size:.85rem}
+    .product-page__live.is-open{background:#e9f7ed;border-color:#b7d9bf;color:#205937}
+    .product-page__action-pending:not([href]){opacity:.72;cursor:not-allowed;pointer-events:none}
+    @media(max-width:420px){.product-page__header .shell{gap:8px}.product-page__brand span{font-size:.74rem}.product-page__actions{flex-direction:column}.product-page__actions .btn{text-align:center;justify-content:center}}
+    @media(max-width:800px){.product-page__grid{grid-template-columns:1fr}.product-page__media{position:relative;top:auto;aspect-ratio:4/3}.product-page__copy h1{font-size:clamp(3rem,14vw,5rem)}}
+
+/* V20: consistent safe-area and detail page sizing. */
+[hidden]{display:none!important}
+.product-page__copy,.product-page__media{min-width:0}.product-page__copy h1{overflow-wrap:break-word;line-height:1.05}
+.product-page__options li{min-width:0;align-items:baseline}.product-page__options li span{min-width:0;overflow-wrap:break-word}
+.product-page__picker select,.product-page__picker input{max-width:100%;min-width:0;min-height:44px;font-size:16px}
+@media(max-width:600px){.product-page__grid{grid-template-columns:minmax(0,1fr);gap:18px}.product-page__main{padding:22px 0 42px}.product-page__copy h1{font-size:clamp(2.15rem,9vw,3.5rem)}.product-page__media{aspect-ratio:4/3!important}.product-page__options{margin-bottom:15px}.product-page__options li{gap:8px}.product-page__options li strong{white-space:nowrap}.product-page__actions .btn{width:100%;justify-content:center}}
+@media(max-width:360px){.product-page__picker{grid-template-columns:1fr}.product-page__picker label:first-child{grid-column:auto}}
